@@ -35,7 +35,7 @@ export default function MovieView() {
             const { title, poster_path, release_date, id } = movie;
             return (
               <li className={s.FilmList_item} key={movie.id}>
-                <Link to={`/${id}`} className={s.FilmList_Link}>
+                <Link to={`/movies/${id}`} className={s.FilmList_Link}>
                   <img
                     className={s.FilmList_img}
                     src={

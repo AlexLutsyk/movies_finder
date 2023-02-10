@@ -5,12 +5,33 @@ import { getMovieDetails } from '../services/apiMovies';
 export default function MovieDetailsPage() {
   const { movieID } = useParams();
   const [movie, setMovie] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('favoriteMovies')) ?? [];
+  });
 
   useEffect(() => {
     getMovieDetails(movieID).then(response => {
       setMovie(response);
     });
   }, [movieID]);
+
+  useEffect(() => {
+    window.localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+  }, [favoriteMovies]);
+
+  const onAddFilm = id => {
+    const equalFilm = favoriteMovies.find(movie => {
+      console.log(movie.id.toString() === id);
+      return movie.id.toString() === id ? true : false;
+    });
+
+    if (equalFilm) {
+      alert(`This movie is already in your library`);
+      return favoriteMovies;
+    } else {
+      setFavoriteMovies([movie, ...favoriteMovies]);
+    }
+  };
 
   const { poster_path, title, vote_average, vote_count, overview, status } = movie;
 
@@ -29,6 +50,9 @@ export default function MovieDetailsPage() {
           <p>Vote Count: {vote_count}</p>
           <p>Status: {status}</p>
           <p>{overview}</p>
+          <button type="button" onClick={() => onAddFilm(movieID)}>
+            Add To Favorite
+          </button>
           <Link to="/">Back to home</Link>
           <Link to="/movies">Back to search movie</Link>
         </div>
