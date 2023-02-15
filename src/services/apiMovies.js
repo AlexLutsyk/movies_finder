@@ -27,9 +27,3 @@ export function getMovieCredits(movieID) {
     `${BaseURL}/movie/${movieID}/credits?api_key=${KEY}&language=en-US`,
   );
 }
-
-export function getMovieReviews(movieID) {
-  return fetchMoviesErrorHandling(
-    `${BaseURL}/movie/${movieID}/reviews?api_key=${KEY}&language=en-US&page=1`,
-  );
-}

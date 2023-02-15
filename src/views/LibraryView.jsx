@@ -33,7 +33,7 @@ export default function LibraryView() {
             {favoriteMovies.map(movie => {
               return (
                 <li className={s.FilmList_item} key={movie.id}>
-                  <Link to={`/library/${movie.id}`} className={s.FilmList_Link}>
+                  <Link to={`/movies/${movie.id}`} className={s.FilmList_Link}>
                     <div>
                       <img
                         className={s.FilmList_img}

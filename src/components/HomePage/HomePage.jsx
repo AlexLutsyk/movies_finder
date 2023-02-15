@@ -23,7 +23,7 @@ export default function HomePage() {
             {movies.map(movie => {
               return (
                 <li className={s.FilmList_item} key={movie.id}>
-                  <Link to={`/${movie.id}`} className={s.FilmList_Link}>
+                  <Link to={`movies/${movie.id}`} className={s.FilmList_Link}>
                     <div>
                       <img
                         className={s.FilmList_img}
