@@ -9,6 +9,19 @@
         padding-right: 15px;
         margin-top: 15px;
 }
+/* Library STYLEs */
+.FilmList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 15px;
+}
+
 .FilmList_item {
     max-width: 210px;
     padding: 0;
@@ -45,6 +58,33 @@
 
 .FilmList_descContainer {
     padding: 10px;
+}
+
+.LibraryButton_minus {
+    width: 40px;
+    border-style: none;
+    background-color: transparent;
+    color: #F9E7CD;
+    transition: all 200ms;
+    cursor: pointer;
+    position: relative;
+    bottom: 370px;
+    left: 170px;
+}
+
+.GiHeartMinus:hover {
+    background-color: transparent;
+    transform: scale(1.05);
+    color: #DB931A;
+}
+
+
+.GiHeartMinus:hover {
+    transform: translateY(-1px);
+}
+
+.GiHeartMinus:active {
+    transform: translateY(0);
 }
 
 /* ACTOR LIST */

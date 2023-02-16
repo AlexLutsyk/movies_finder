@@ -46,7 +46,7 @@ export default function MovieCard({
         <p>{overview}</p>
       </div>
       <button className={s.MovieCardButton} type="button" onClick={() => onAddFilm(movieID)}>
-        <BsFillBookmarkHeartFill size={40} />
+        <BsFillBookmarkHeartFill className={s.BsFillBookmarkHeartFill} size={40} />
       </button>
     </div>
   );

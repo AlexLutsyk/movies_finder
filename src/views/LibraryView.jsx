@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { GiHeartMinus } from 'react-icons/gi';
 
 import s from '../views/views.module.css';
 import Container from '../components/Container';
@@ -29,7 +30,7 @@ export default function LibraryView() {
     <>
       <Container>
         {favoriteMovies ? (
-          <ul>
+          <ul className={s.FilmList}>
             {favoriteMovies.map(movie => {
               return (
                 <li className={s.FilmList_item} key={movie.id}>
@@ -46,8 +47,12 @@ export default function LibraryView() {
                       </div>
                     </div>
                   </Link>
-                  <button type="button" onClick={() => onDeleteFilm(movie.id)}>
-                    Remove Film
+                  <button
+                    className={s.LibraryButton_minus}
+                    type="button"
+                    onClick={() => onDeleteFilm(movie.id)}
+                  >
+                    <GiHeartMinus className={s.GiHeartMinus} size="30px" />
                   </button>
                 </li>
               );

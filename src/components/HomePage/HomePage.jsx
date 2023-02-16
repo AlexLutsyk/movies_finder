@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { BsPlusCircleDotted } from 'react-icons/bs';
 
 import * as moviesAPI from '../../services/apiMovies';
 import Container from '../Container';
@@ -8,13 +9,27 @@ import s from './HomePage.module.css';
 
 export default function HomePage() {
   const [movies, setMovies] = useState(null);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    moviesAPI.getTrendingMovies().then(res => {
+    moviesAPI.getTrendingMovies(page).then(res => {
       setMovies(res.results);
+      setPage(2);
     });
   }, []);
 
+  const onLoadMore = () => {
+    setPage(page + 1);
+
+    moviesAPI.getTrendingMovies(page).then(movies => {
+      setMovies(prevMovies => [...prevMovies, ...movies.results]);
+
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+    });
+  };
   return (
     <>
       <Container>
@@ -41,6 +56,9 @@ export default function HomePage() {
             })}
           </ul>
         )}
+        <button type="button" className={s.LoadMoreButton} onClick={onLoadMore}>
+          <BsPlusCircleDotted className={s.BsPlusCircleDotted} size="50px" />
+        </button>
       </Container>
     </>
   );

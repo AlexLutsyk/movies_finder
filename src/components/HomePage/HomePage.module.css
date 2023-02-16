@@ -47,3 +47,24 @@
 .FilmList_descContainer {
     padding: 10px;
 }
+
+.LoadMoreButton {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 65px;
+    height: 65px;
+    color: #DB931A;
+    
+}
+.BsPlusCircleDotted{
+margin-left: 540px;
+    transition: transform 2s;
+}
+
+.BsPlusCircleDotted:hover {
+    background-color: transparent;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    color: #DB931A;
+}

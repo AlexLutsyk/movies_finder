@@ -29,6 +29,22 @@
     cursor: pointer;
     width: 40px;
     height:40px;
-    color:#DB931A;
+    color: #F9E7CD;
+    transition: all 200ms;
 
+}
+
+.BsFillBookmarkHeartFill:hover {
+    background-color: transparent;
+    transform: scale(1.05);
+    color: #DB931A;
+}
+
+
+.BsFillBookmarkHeartFill:hover {
+    transform: translateY(-1px);
+}
+
+.BsFillBookmarkHeartFill:active {
+    transform: translateY(0);
 }

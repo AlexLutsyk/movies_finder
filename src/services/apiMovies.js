@@ -7,14 +7,15 @@ async function fetchMoviesErrorHandling(url = '') {
   return response.ok ? await response.json() : Promise.reject(new Error('Not Found'));
 }
 
-export function getTrendingMovies() {
-  return fetchMoviesErrorHandling(`${BaseURL}/trending/movie/week?api_key=${KEY}`);
+export function getTrendingMovies(page) {
+  return fetchMoviesErrorHandling(
+    `${BaseURL}/movie/popular?api_key=${KEY}&language=en-US&page=${page}`,
+  );
 }
 
 export function getMovie(movieName, page) {
   return fetchMoviesErrorHandling(
     `${BaseURL}/search/movie?api_key=${KEY}&language=en-US&page=${page}&include_adult=false&query=${movieName}`,
-    console.log(movieName),
   );
 }
 
