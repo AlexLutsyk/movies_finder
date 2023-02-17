@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { BsPlusCircleDotted } from 'react-icons/bs';
 
 import * as moviesAPI from '../../services/apiMovies';
-import Container from '../Container';
+import Container from '../../components/Container';
 
 import s from './HomePage.module.css';
 
@@ -16,6 +16,7 @@ export default function HomePage() {
       setMovies(res.results);
       setPage(2);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onLoadMore = () => {
@@ -46,7 +47,6 @@ export default function HomePage() {
                         alt={movie.title}
                       />
                       <div className={s.FilmList_descContainer}>
-                        <h3 className={s.FilmList_header}>{movie.title}</h3>
                         <p className={s.FilmList_date}>Relise Date: {movie.release_date}</p>
                       </div>
                     </div>

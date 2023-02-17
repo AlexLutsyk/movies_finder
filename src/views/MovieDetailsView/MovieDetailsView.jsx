@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { getMovieDetails, getMovieCredits } from '../services/apiMovies';
+import { getMovieDetails, getMovieCredits } from '../../services/apiMovies';
 
-import s from './views.module.css';
-import MovieCard from '../components/MovieCard';
-import ActorCard from '../components/ActorCard';
+import s from './MovieDetailsView.module.css';
+import MovieCard from '../../components/MovieCard';
+import ActorCard from '../../components/ActorCard';
 
 export default function MovieDetailsPage() {
   const { movieID } = useParams();

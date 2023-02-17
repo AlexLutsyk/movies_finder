@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getMovie } from '../services/apiMovies';
-import s from './views.module.css';
-import Container from '../components/Container';
-import MovieFinder from '../components/MovieFinder';
+import { getMovie } from '../../services/apiMovies';
+import s from './MovieView.module.css';
+import Container from '../../components/Container';
+import MovieFinder from '../../components/MovieFinder';
 
 export default function MovieView() {
   const [currentFilmName, setCurrentFilmName] = useState('');
@@ -48,7 +48,6 @@ export default function MovieView() {
                       alt={title}
                     />
                     <div className={s.FilmList_descContainer}>
-                      <h3 className={s.FilmList_header}>{title}</h3>
                       <p className={s.FilmList_date}>Relise Date: {release_date}</p>
                     </div>
                   </Link>

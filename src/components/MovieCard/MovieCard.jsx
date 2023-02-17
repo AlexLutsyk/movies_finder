@@ -1,6 +1,5 @@
 import s from './MovieCard.module.css';
 import { BsFillBookmarkHeartFill } from 'react-icons/bs';
-// BsFillBookmarkHeartFill;
 
 export default function MovieCard({
   movieID,
@@ -27,7 +26,7 @@ export default function MovieCard({
         height="600"
       />
       <div className={s.MovieDescription}>
-        <h3>{title}</h3>
+        <h3 className={s.DescriptionTitle}>{title}</h3>
         <p>
           <span className={s.DescriptionText}>Release Date:</span> {releaseDate}
         </p>
